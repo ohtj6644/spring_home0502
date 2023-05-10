@@ -8,10 +8,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Optional;
 
+import com.ll.sbb.Answer.Answer;
+import com.ll.sbb.Answer.AnswerRepository;
+import com.ll.sbb.Question.Question;
+import com.ll.sbb.Question.QuestionRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import java.time.LocalDateTime;
 import org.springframework.transaction.annotation.Transactional;
 
 @SpringBootTest
