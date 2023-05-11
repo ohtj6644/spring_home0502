@@ -1,9 +1,16 @@
 package com.ll.sbb.Question;
 
+
 import java.time.LocalDateTime;
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Pageable;
+import java.util.ArrayList;
+import java.util.List;
+import org.springframework.data.domain.Sort;
 
 import lombok.RequiredArgsConstructor;
 import java.util.Optional;
@@ -39,5 +46,13 @@ public class QuestionService {
         //위에 프라이빗으로 선언한 질문리포지터리에 저장.
 
 
+    }
+
+    public Page<Question> getList(int page){
+        List<Sort.Order> sorts = new ArrayList<>();
+        sorts.add(Sort.Order.desc("createDate"));
+        Pageable pageable= PageRequest.of(page,10, Sort.by(sorts));
+        //조회할페이지번호 , 한페이지에 10개 보여줌
+        return this.questionRepository.findAll(pageable);
     }
 }
